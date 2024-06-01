@@ -4,6 +4,7 @@ import MyComponent from './Example/MyComponent';
 
 /**
  * 2 components: class component | function component ( function, arrow)
+ * Mục đính tạo ra component để khởi tạo code độc lập với nhau, không bị phụ thuộc vào nhau
  * 
  * component của react sử dụng JSX
  * 
