@@ -1,5 +1,6 @@
 import React from "react";
 import ChildCoponent from "./ChildCoponent";
+import AddComponent from "./AddComponent";
 
 class MyComponent extends React.Component {
 // Định nghĩa function trong class Component không cần khai báo function, react sẽ tự hiểu.
@@ -12,9 +13,7 @@ class MyComponent extends React.Component {
  * 
  */
     state = {
-        firstName: '',
-        age: '',
-        address: '',
+        
         arrJobs: [
             { id: 'abcJob1', title: 'Developers', salary: '500'}, 
             { id: 'abcJob2', title: 'Testers', salary: '400'},
@@ -37,28 +36,9 @@ class MyComponent extends React.Component {
  * 
  */
 
-    handleChangeFirstName = (event) => {
-        this.setState({
-            firstName: event.target.value
-        })
-    }
+    
 
-    handleChangeAge = (event) => {
-        this.setState({
-            age: event.target.value
-        })
-    }
-
-    handleChangeAddress = (event) => {
-        this.setState({
-            address: event.target.value
-        })
-    }
-
-    handleSubmit = (event) => {
-        event.preventDefault()
-        console.log('>>> check data input: ', this.state)
-    }
+   
 
     // re-render
     render() {
@@ -70,36 +50,10 @@ class MyComponent extends React.Component {
         return(
             // Chúng ta phải return() về một khối bằng dấu shortcut <>    </>
             <>
-                <form>
-                    <label htmlFor="fname">First name:</label><br/>
-                    <input 
-                        type="text" 
-                        value={this.state.firstName}
-                        onChange={(event) => this.handleChangeFirstName(event)}
-                    />
-                    <br/>
-                    <label htmlFor="lname">Age:</label><br/>
-                    <input 
-                        type="text" 
-                        value={this.state.age}
-                        onChange={(event) => this.handleChangeAge(event)}
-                    />
-                    <br/>
-                    <label htmlFor="lname">Address:</label><br/>
-                    <input 
-                        type="text" 
-                        value={this.state.address}
-                        onChange={(event) => this.handleChangeAddress(event)}
-                    />
-                    <br/><br/>
-                    <input type="submit" 
-                        onClick={(event) => this.handleSubmit(event)}
-                    />  
-                </form> 
+                <AddComponent/>
+                
                 <ChildCoponent 
-                    name={this.state.firstName}
-                    age={this.state.age}
-                    address={this.state.address}
+                    
                     arrJobs={this.state.arrJobs}
                 />
             </>
