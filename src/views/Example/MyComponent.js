@@ -16,9 +16,9 @@ class MyComponent extends React.Component {
         age: '',
         address: '',
         arrJobs: [
-            { id: 'abcJob1', title: 'Developers', salary: '500 $'}, 
-            { id: 'abcJob2', title: 'Testers', salary: '400 $'},
-            { id: 'abcJob3', title: 'Project managers', salary: '1000 $'}
+            { id: 'abcJob1', title: 'Developers', salary: '500'}, 
+            { id: 'abcJob2', title: 'Testers', salary: '400'},
+            { id: 'abcJob3', title: 'Project managers', salary: '1000'}
         ]
     }
 
@@ -37,25 +37,25 @@ class MyComponent extends React.Component {
  * 
  */
 
-    hendleChangeFirstName = (event) => {
+    handleChangeFirstName = (event) => {
         this.setState({
             firstName: event.target.value
         })
     }
 
-    hendleChangeAge = (event) => {
+    handleChangeAge = (event) => {
         this.setState({
             age: event.target.value
         })
     }
 
-    hendleChangeAddress = (event) => {
+    handleChangeAddress = (event) => {
         this.setState({
             address: event.target.value
         })
     }
 
-    hendleSubmit = (event) => {
+    handleSubmit = (event) => {
         event.preventDefault()
         console.log('>>> check data input: ', this.state)
     }
@@ -75,25 +75,25 @@ class MyComponent extends React.Component {
                     <input 
                         type="text" 
                         value={this.state.firstName}
-                        onChange={(event) => this.hendleChangeFirstName(event)}
+                        onChange={(event) => this.handleChangeFirstName(event)}
                     />
                     <br/>
                     <label htmlFor="lname">Age:</label><br/>
                     <input 
                         type="text" 
                         value={this.state.age}
-                        onChange={(event) => this.hendleChangeAge(event)}
+                        onChange={(event) => this.handleChangeAge(event)}
                     />
                     <br/>
                     <label htmlFor="lname">Address:</label><br/>
                     <input 
                         type="text" 
                         value={this.state.address}
-                        onChange={(event) => this.hendleChangeAddress(event)}
+                        onChange={(event) => this.handleChangeAddress(event)}
                     />
                     <br/><br/>
                     <input type="submit" 
-                        onClick={(event) => this.hendleSubmit(event)}
+                        onClick={(event) => this.handleSubmit(event)}
                     />  
                 </form> 
                 <ChildCoponent 
