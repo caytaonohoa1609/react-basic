@@ -11,21 +11,11 @@ class MyComponent extends React.Component {
  * 
  */
     state = {
-        name: '',
-        hyvong: 'in a little heart'
+        firstName: '',
+        lastName: ''
     }
 
 
-    handleOnChangName = (event) => {
-        //merge
-        this.setState({
-            name: event.target.value,
-        })
-    }
-
-    handleClickButton = () => {
-        alert('click me')
-    }
 
 
 /**
@@ -39,6 +29,24 @@ class MyComponent extends React.Component {
  * trong đống template
  * 
  */
+
+    hendleChangeFirstName = (event) => {
+        this.setState({
+            firstName: event.target.value
+        })
+    }
+
+    hendleChangeLastName = (event) => {
+        this.setState({
+            lastName: event.target.value
+        })
+    }
+
+    hendleSubmit = (event) => {
+        event.preventDefault()
+        console.log('>>> check data input: ', this.state)
+    }
+
     // re-render
     render() {
         console.log('>>> call render: ', this.state)
@@ -49,20 +57,26 @@ class MyComponent extends React.Component {
         return(
             // Chúng ta phải return() về một khối bằng dấu shortcut <>    </>
             <>
-                <div className="first">
-                    <input value={this.state.name} type="text"
-                        onChange={(event) => this.handleOnChangName(event)}
+                <form>
+                    <label htmlFor="fname">First name:</label><br/>
+                    <input 
+                        type="text" 
+                        value={this.state.firstName}
+                        onChange={(event) => this.hendleChangeFirstName(event)}
                     />
-                    My name is: { this.state.name }
-                </div>
-                <div className="second">
-                    Anh Huy Cố lên dù chỉ một hơi thở cuối cùng, cũng đừng ngưng thôi nuôi hy vọng: { this.state.hyvong }
-                </div>
-                <div className="third">
-                    <button onClick={() => this.handleClickButton()}>
-                        Click me
-                    </button>
-                </div>
+                    <br/>
+                    <label htmlFor="lname">Last name:</label><br/>
+                    <input 
+                        type="text" 
+                        value={this.state.lastName}
+                        onChange={(event) => this.hendleChangeLastName(event)}
+                    />
+                    <br/><br/>
+                    <input type="submit" 
+                        onClick={(event) => this.hendleSubmit(event)}
+                    />
+                </form> 
+
             </>
 
             // Khi chúng ta muốn trả về chỉ thẻ <div> bên trong mà không muốn sử dụng thẻ <div> bọc ngoài
