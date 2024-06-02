@@ -22,6 +22,11 @@ class MyComponent extends React.Component {
         })
     }
 
+    handleClickButton = () => {
+        console.log('hit the button')
+        alert('click me')
+    }
+
 
 /**
  * Hàm render sử dụng một cú pháp JSX.
@@ -50,6 +55,11 @@ class MyComponent extends React.Component {
                 </div>
                 <div className="second">
                     Anh Huy Cố lên dù chỉ một hơi thở cuối cùng, cũng đừng ngưng thôi nuôi hy vọng: { this.state.channel }
+                </div>
+                <div className="third">
+                    <button onClick={() => this.handleClickButton()}>
+                        Click me
+                    </button>
                 </div>
             </>
 
