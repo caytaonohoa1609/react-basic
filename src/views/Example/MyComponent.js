@@ -13,7 +13,13 @@ class MyComponent extends React.Component {
  */
     state = {
         firstName: '',
-        lastName: ''
+        age: '',
+        address: '',
+        arrJobs: [
+            { id: 'abcJob1', title: 'Developers', salary: '500 $'}, 
+            { id: 'abcJob2', title: 'Testers', salary: '400 $'},
+            { id: 'abcJob3', title: 'Project managers', salary: '1000 $'}
+        ]
     }
 
 
@@ -37,9 +43,15 @@ class MyComponent extends React.Component {
         })
     }
 
-    hendleChangeLastName = (event) => {
+    hendleChangeAge = (event) => {
         this.setState({
-            lastName: event.target.value
+            age: event.target.value
+        })
+    }
+
+    hendleChangeAddress = (event) => {
+        this.setState({
+            address: event.target.value
         })
     }
 
@@ -66,11 +78,18 @@ class MyComponent extends React.Component {
                         onChange={(event) => this.hendleChangeFirstName(event)}
                     />
                     <br/>
-                    <label htmlFor="lname">Last name:</label><br/>
+                    <label htmlFor="lname">Age:</label><br/>
                     <input 
                         type="text" 
-                        value={this.state.lastName}
-                        onChange={(event) => this.hendleChangeLastName(event)}
+                        value={this.state.age}
+                        onChange={(event) => this.hendleChangeAge(event)}
+                    />
+                    <br/>
+                    <label htmlFor="lname">Address:</label><br/>
+                    <input 
+                        type="text" 
+                        value={this.state.address}
+                        onChange={(event) => this.hendleChangeAddress(event)}
                     />
                     <br/><br/>
                     <input type="submit" 
@@ -78,8 +97,10 @@ class MyComponent extends React.Component {
                     />  
                 </form> 
                 <ChildCoponent 
-                    name={'Nuoi Hy Vong'}
-                    age={'23'}
+                    name={this.state.firstName}
+                    age={this.state.age}
+                    address={this.state.address}
+                    arrJobs={this.state.arrJobs}
                 />
             </>
             // Truyền biến props vào component con

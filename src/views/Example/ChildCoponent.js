@@ -50,7 +50,6 @@ class ChildCoponent extends React.Component {
     // re-render
     render() {
         console.log('>>> check props: ', this.props)
-        console.log('>>> call render: ', this.state)
 
         // Ví dụ tạo một BIẾN bên trong HÀM render()
         // let name = 'Quang Huy'
@@ -59,12 +58,32 @@ class ChildCoponent extends React.Component {
         // let name = this.props.name;
         // let age = this.props.age;
 
-        let { name, age } = this.props
+        let { name, age, address, arrJobs } = this.props;
 
+        /** Vòng lặp map
+         * arrJobs.map((item, index) => {
+         *  
+         * })
+         * 
+         * item chính là từng phần tử trong mảng
+         * idex chính chỉ chỉ số trong mảng
+         */
         return(
             // Chúng ta phải return() về một khối bằng dấu shortcut <>    </>
             <>
-                <div>child component name: {name} - {age}</div>
+                <div className="job-lists">
+                    {
+                        arrJobs.map((item, idenx) => {
+                            return(
+                                <div key={item.id}>
+                                    {item.id} - {item.title} - {item.salary}    
+                                </div>
+                            )
+                        })
+                    }
+                    
+
+                </div>
             </>
             // Props: viết tắt của từ Property giải quyết vấn đề truyền data của React
 
