@@ -49,17 +49,24 @@ class ChildCoponent extends React.Component {
 
     // re-render
     render() {
+        console.log('>>> check props: ', this.props)
         console.log('>>> call render: ', this.state)
 
         // Ví dụ tạo một BIẾN bên trong HÀM render()
         // let name = 'Quang Huy'
         // Muốn dùng JavaScript bên trong HTML ta phải sử dụng dấu {}
+
+        // let name = this.props.name;
+        // let age = this.props.age;
+
+        let { name, age } = this.props
+
         return(
             // Chúng ta phải return() về một khối bằng dấu shortcut <>    </>
             <>
-                <div>child component: {this.props.name}</div>
-
+                <div>child component name: {name} - {age}</div>
             </>
+            // Props: viết tắt của từ Property giải quyết vấn đề truyền data của React
 
             // Khi chúng ta muốn trả về chỉ thẻ <div> bên trong mà không muốn sử dụng thẻ <div> bọc ngoài
             // Chúng ta sử dụng <React.Fragment> </React.Fragment>, và dấu shortcut cũng có thể được <>    </>

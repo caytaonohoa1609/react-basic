@@ -77,10 +77,14 @@ class MyComponent extends React.Component {
                         onClick={(event) => this.hendleSubmit(event)}
                     />  
                 </form> 
-                <ChildCoponent name={'child one'}/>
-                <ChildCoponent name={'child two'}/>
-                <ChildCoponent name={'child three'}/>
+                <ChildCoponent 
+                    name={'Nuoi Hy Vong'}
+                    age={'23'}
+                />
             </>
+            // Truyền biến props vào component con
+            // Truyền 2 biến props vào Childcoponent và phải thêm dấu {}
+
 
             // Khi chúng ta muốn trả về chỉ thẻ <div> bên trong mà không muốn sử dụng thẻ <div> bọc ngoài
             // Chúng ta sử dụng <React.Fragment> </React.Fragment>, và dấu shortcut cũng có thể được <>    </>
