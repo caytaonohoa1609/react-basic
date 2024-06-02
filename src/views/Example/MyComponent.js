@@ -11,19 +11,19 @@ class MyComponent extends React.Component {
  * 
  */
     state = {
-        name: 'Quang Huy',
+        name: '',
         hyvong: 'in a little heart'
     }
 
 
     handleOnChangName = (event) => {
+        //merge
         this.setState({
-            name: event.target.value
+            name: event.target.value,
         })
     }
 
     handleClickButton = () => {
-        console.log('hit the button')
         alert('click me')
     }
 
@@ -39,7 +39,9 @@ class MyComponent extends React.Component {
  * trong đống template
  * 
  */
+    // re-render
     render() {
+        console.log('>>> call render: ', this.state)
 
         // Ví dụ tạo một BIẾN bên trong HÀM render()
         // let name = 'Quang Huy'
@@ -54,7 +56,7 @@ class MyComponent extends React.Component {
                     My name is: { this.state.name }
                 </div>
                 <div className="second">
-                    Anh Huy Cố lên dù chỉ một hơi thở cuối cùng, cũng đừng ngưng thôi nuôi hy vọng: { this.state.channel }
+                    Anh Huy Cố lên dù chỉ một hơi thở cuối cùng, cũng đừng ngưng thôi nuôi hy vọng: { this.state.hyvong }
                 </div>
                 <div className="third">
                     <button onClick={() => this.handleClickButton()}>
