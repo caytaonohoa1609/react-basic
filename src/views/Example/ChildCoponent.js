@@ -1,7 +1,6 @@
 import React from "react";
-import ChildCoponent from "./ChildCoponent";
 
-class MyComponent extends React.Component {
+class ChildCoponent extends React.Component {
 // Định nghĩa function trong class Component không cần khai báo function, react sẽ tự hiểu.
 
 
@@ -58,28 +57,8 @@ class MyComponent extends React.Component {
         return(
             // Chúng ta phải return() về một khối bằng dấu shortcut <>    </>
             <>
-                <form>
-                    <label htmlFor="fname">First name:</label><br/>
-                    <input 
-                        type="text" 
-                        value={this.state.firstName}
-                        onChange={(event) => this.hendleChangeFirstName(event)}
-                    />
-                    <br/>
-                    <label htmlFor="lname">Last name:</label><br/>
-                    <input 
-                        type="text" 
-                        value={this.state.lastName}
-                        onChange={(event) => this.hendleChangeLastName(event)}
-                    />
-                    <br/><br/>
-                    <input type="submit" 
-                        onClick={(event) => this.hendleSubmit(event)}
-                    />  
-                </form> 
-                <ChildCoponent name={'child one'}/>
-                <ChildCoponent name={'child two'}/>
-                <ChildCoponent name={'child three'}/>
+                <div>child component: {this.props.name}</div>
+
             </>
 
             // Khi chúng ta muốn trả về chỉ thẻ <div> bên trong mà không muốn sử dụng thẻ <div> bọc ngoài
@@ -89,6 +68,6 @@ class MyComponent extends React.Component {
 
 }
 
-export default MyComponent;
+export default ChildCoponent;
 
-// Để sử dụng file Mycomponent trong file App ta sử dụng keyword export default Mycomponent
+// Để sử dụng file ChildCoponent trong file App ta sử dụng keyword export default ChildCoponent
