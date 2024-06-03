@@ -21,7 +21,12 @@ class MyComponent extends React.Component {
         ]
     }
 
-
+    addNewJob = (job) => {
+        console.log('>>> check job from parent: ', job)
+        this.setState({
+            arrJobs: [...this.state.arrJobs, job]
+        })
+    }
 
 
 /**
@@ -50,7 +55,9 @@ class MyComponent extends React.Component {
         return(
             // Chúng ta phải return() về một khối bằng dấu shortcut <>    </>
             <>
-                <AddComponent/>
+                <AddComponent
+                    addNewJob={this.addNewJob}
+                />
                 
                 <ChildCoponent 
                     
