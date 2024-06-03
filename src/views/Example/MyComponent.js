@@ -41,6 +41,14 @@ class MyComponent extends React.Component {
         })
     }
 
+    componentDidUpdate(prevPorps, prevState) {
+        console.log('>>> run did update: ', 'prev state: ', prevState, 'current state: ', this.state)
+    }
+
+    componentDidMount() {
+        console.log('>>> run component did mount')
+    }
+
 /**
  * Hàm render sử dụng một cú pháp JSX.
  * JSX khác gì so với các ngôn ngữ lập trình khác, so với Anguler, View.
