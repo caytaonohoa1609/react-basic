@@ -23,11 +23,23 @@ class MyComponent extends React.Component {
 
     addNewJob = (job) => {
         console.log('>>> check job from parent: ', job)
+        // let currenJob = this.state.arrJobs;
+        // currenJob.push(job)
+
         this.setState({
             arrJobs: [...this.state.arrJobs, job]
+            // arrJobs: currenJob
         })
     }
 
+
+    deleteAJob = (job) => {
+        let currenJob = this.state.arrJobs;
+        currenJob = currenJob.filter(item => item.id !== job.id);
+        this.setState({
+            arrJobs: currenJob
+        })
+    }
 
 /**
  * Hàm render sử dụng một cú pháp JSX.
@@ -60,8 +72,8 @@ class MyComponent extends React.Component {
                 />
                 
                 <ChildCoponent 
-                    
                     arrJobs={this.state.arrJobs}
+                    deleteAJob={this.deleteAJob}
                 />
             </>
             // Truyền biến props vào component con
