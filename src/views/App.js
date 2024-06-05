@@ -1,9 +1,21 @@
 import logo from './logo.svg';
 import './App.scss';
-// import MyComponent from './Example/MyComponent';
+import MyComponent from './Example/MyComponent';
 import ListTodo from './Todos/ListTodo';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Nav from './Nav/Nav';
+import Home from './Example/Home';
+import {
+  // createBrowserRouter,
+  // RouterProvider,
+  // Router,
+  Route,
+  Switch,
+  // Link,
+  BrowserRouter,
+} from "react-router-dom";
+
 
 /**
  * 2 components: class component | function component ( function, arrow)
@@ -20,29 +32,44 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Simple Todo Apps with React.js (Hy Vong &amp; Co Len Anh Huy)
-        </p>
-        {/* <MyComponent/> */}
-        <ListTodo/>
-      </header>
+    <BrowserRouter>
+      <div className="App">
+        <header className="App-header">
+          <Nav/>
+          <img src={logo} className="App-logo" alt="logo" />
+        
+         
+          
+          
+          <Switch>
+            <Route path='/' exact>
+              <Home/>
+            </Route>
+            <Route path='/todo'>
+              <ListTodo/>
+            </Route>
+            <Route path='/about'>
+              <MyComponent/>
+            </Route>
+          </Switch>
+          
+        </header>
 
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-    </div>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
+      </div>
+    </BrowserRouter>
   );
 }
 
 export default App;
+
