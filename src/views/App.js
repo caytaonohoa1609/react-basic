@@ -7,12 +7,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Nav from './Nav/Nav';
 import Home from './Example/Home';
 import {
-  // createBrowserRouter,
-  // RouterProvider,
-  // Router,
+  // Link,
   Route,
   Switch,
-  // Link,
   BrowserRouter,
 } from "react-router-dom";
 
@@ -72,4 +69,3 @@ function App() {
 }
 
 export default App;
-
